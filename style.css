@@ -1,0 +1,251 @@
+/* --- 1. BASE MODERNA CYBER-MANGA --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d0f;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Fundo sutil com Grid minimalista */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background-image: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+
+/* --- 2. BANNER ESTRUTURADO (TECH-MANGA) --- */
+.admin-banner {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #16161a 0%, #0d0d0f 100%);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-left: 5px solid #00f3ff;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.admin-content h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem); /* Título grande e responsivo */
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.admin-description {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 800px;
+}
+
+/* --- 3. CARROSSEL (FILEIRA DE ARRASTO) --- */
+.imgg {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 40px 5%; /* Padding lateral para ver a próxima imagem no mobile */
+    scrollbar-width: none; /* Esconde barra no Firefox */
+}
+
+.imgg::-webkit-scrollbar { 
+    display: none; /* Esconde barra no Chrome/Safari */
+}
+
+.imgg img {
+    flex: 0 0 220px; /* Tamanho fixo para permitir o scroll horizontal */
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 243, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    cursor: pointer;
+    scroll-snap-align: center;
+    filter: grayscale(20%);
+}
+
+.imgg img:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #00f3ff;
+    filter: grayscale(0%);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
+}
+
+/* --- 4. SEÇÃO DE COMPRA (COMPRA-MANGA) --- */
+.compra-manga {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.compra-manga h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.btn-manga-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 50px;
+    background: rgba(0, 243, 255, 0.05);
+    color: #00f3ff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #00f3ff;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-manga-link:hover {
+    background: #00f3ff;
+    color: #0d0d0f !important;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+/* --- 5. ADAPTAÇÃO PARA PC (TELAS GRANDES) --- */
+@media (min-width: 1024px) {
+    .imgg {
+        padding: 50px 10%; /* Mais centralizado no PC */
+    }
+    
+    .imgg img {
+        flex: 0 0 280px; /* Imagens maiores no monitor */
+        height: 400px;
+    }
+}
+
+/* --- 6. ADAPTAÇÃO PARA TELEFONE (MOBILE) --- */
+@media (max-width: 768px) {
+    .admin-banner {
+        width: 95%;
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+
+    .admin-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .imgg img {
+        flex: 0 0 180px; /* Tamanho ideal para tela de celular */
+        height: 260px;
+    }
+
+    .btn-manga-link {
+        width: 100%; /* Botão ocupa a largura toda no celular */
+        justify-content: center;
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+}
+/* --- 7. SEÇÃO DE COMPRA CYBER-HQ --- */
+.compra-hq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.02));
+}
+
+.compra-hq h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: 800;
+}
+
+.compra-hq p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* O BOTÃO QUE ESTAVA SEM CSS */
+.btn-cyber-hq {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 50px;
+    background: rgba(0, 243, 255, 0.05); /* Fundo sutil */
+    color: #00f3ff !important; /* Texto Ciano */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #00f3ff;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+.btn-cyber-hq:hover {
+    background: #00f3ff;
+    color: #0d0d0f !important; /* Inverte as cores no hover */
+    box-shadow: 0 0 35px rgba(0, 243, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Animação da seta interna */
+.seta-cyber {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-cyber-hq:hover .seta-cyber {
+    transform: translateX(8px); /* A seta "foge" para a direita no hover */
+}
+
+/* AJUSTE PARA TELEFONE (MOBILE) */
+@media (max-width: 768px) {
+    .compra-hq {
+        padding: 50px 15px;
+    }
+
+    .btn-cyber-hq {
+        width: 100%; /* Botão largo no celular */
+        padding: 18px 20px;
+        justify-content: center;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .compra-hq p {
+        font-size: 1rem;
+    }
+}
