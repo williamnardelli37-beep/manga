@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../manga"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mags"
+	}
+}
