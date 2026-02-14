@@ -1,33 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="icone sebo .WebP" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mangas sebo-so-ler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="admin-banner">
-    <div class="admin-content">
-        <h1>Mundo dos Mangás</h1>
-        <p class="admin-description">
-            Dos clássicos Shonen às profundas narrativas Seinen. Encontre edições de luxo, volumes raros e as obras originais que deram vida aos animes mais épicos de todos os tempos. Complete sua coleção e viva essa jornada!
-        </p>
-    </div>
-</div>
-<div class="imgg" id="galeria">
-            <img src="instagram-pro.jpg-51.WebP" alt="">
-            <img src="instagram-pro.jpg-52.WebP" alt="">
-            <img src="instagram-pro.jpg-54.WebP" alt="">
-            <img src="instagram-pro.jpg-55.WebP" alt="">
-            <img src="instagram-pro.jpg-56.png" alt="">
-            <img src="instagram-pro.jpg-57.png" alt="">
-            <img src="instagram-pro.jpg-58.png" alt="">
-            <img src="instagram-pro.jpg-60.png" alt="">
-        </div>
 
-  <div class="compra-manga">
+<div class="header-container">
+    <h1>Seja bem-vindo</h1>
+    <h2 class="imagem-rotativa">
+        <span>ao espaço dos mangas</span>
+    </h2>
+</div>
+
+<div class="galeria-wrapper">
+    <button class="btn-nav btn-prev" onclick="moverGaleria(-1)">❮</button>
+    
+    <div class="imgg" id="galeria">
+        <img src="instagram-pro.jpg-51.WebP" alt="Manga 1">
+        <img src="instagram-pro.jpg-52.WebP" alt="Manga 2">
+        <img src="instagram-pro.jpg-54.WebP" alt="Manga 3">
+        <img src="instagram-pro.jpg-55.WebP" alt="Manga 4">
+        <img src="instagram-pro.jpg-56.png" alt="Manga 5">
+        <img src="instagram-pro.jpg-57.png" alt="Manga 6">
+        <img src="instagram-pro.jpg-58.png" alt="Manga 7">
+        <img src="instagram-pro.jpg-60.png" alt="Manga 8">
+    </div>
+
+    <button class="btn-nav btn-next" onclick="moverGaleria(1)">❯</button>
+</div>
+
+<div class="compra-manga">
     <h1>Suba de Nível na Sua Coleção</h1>
     <p>Adicione volumes raros e sagas lendárias à sua estante hoje mesmo.</p>
     <a href="https://sebo-so-ler.base44.app/" class="btn-manga-style">
@@ -35,5 +42,16 @@
     </a>
 </div>
 
+<script>
+    function moverGaleria(direcao) {
+        const galeria = document.getElementById('galeria');
+        const scrollAmount = 300; // Define a distância do deslize
+        galeria.scrollBy({
+            left: direcao * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+</script>
+    
 </body>
 </html>
